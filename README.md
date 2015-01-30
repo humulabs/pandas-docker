@@ -16,11 +16,11 @@ and good 'ole `pip`.
 
 ## Using
 
-This package is available on docker.io
+This package is available on quay.io
 
 ### Interactively
 
-`docker run -it humu/pandas /bin/bash`
+`docker run -it quay.io/humu/pandas /bin/bash`
 
 ### As a base for your application
 
