@@ -1,7 +1,6 @@
 # pandas-docker
 
-Docker base image with pandas built on miniconda. Built on phusion/baseimage
-which is Ubuntu as a well behaved Docker citizen.
+Docker base image with pandas built on miniconda. Built on phusion/baseimage.
 
 This image uses miniconda to install a data science toolkit
 consisting of:
@@ -13,13 +12,23 @@ consisting of:
 - pytables
 - scipy
 
-and good ole `pip`.
+and good 'ole `pip`.
+
+## Using
+
+This package is available on docker.io
+
+### Interactively
+
+`docker run -it humu/pandas /bin/bash`
+
+### As a base for your application
+
+Create a Dockerfile based on this image and add your stuff.
 
 ## Building
 
-This package is available on docker.io.
-
-[docker](http://www.docker.com) is require to build, test, and
+[docker](http://www.docker.com) is required to build, test, and
 release this package to docker.io.
 
 ### Mac usage quick start
@@ -44,13 +53,3 @@ This runs the pandas test suite on the newly built image. It takes about
 10 minutes.
 
 `make test`
-
-## Using
-
-### Interactively
-
-`docker run -it humu/pandas /bin/bash`
-
-### As a base for your application
-
-Create a Dockerfile based on this image and add your stuff.

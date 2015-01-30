@@ -7,7 +7,11 @@ RUN /etc/my_init.d/00_regen_ssh_host_keys.sh
 CMD ["/sbin/my_init"]
 
 ENV DEBIAN_FRONTEND noninteractive
-RUN apt-get update && apt-get install -y bzip2 wget; \
+RUN apt-get update && \
+    apt-get install -y \
+      bzip2 \
+      python-qt4 \
+      wget; \
     apt-get clean; \
     rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
@@ -30,3 +34,5 @@ RUN \
     pip \
     pytables \
     scipy
+
+RUN apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
