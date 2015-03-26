@@ -9,13 +9,16 @@ CMD ["/sbin/my_init"]
 ENV DEBIAN_FRONTEND noninteractive
 RUN apt-get update && \
     apt-get install -y \
+      build-essential \
       bzip2 \
+      gcc \
+      gfortran \
       python-qt4 \
       wget; \
     apt-get clean; \
     rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
-ENV MINI_INSTALLER Miniconda3-3.7.0-Linux-x86_64.sh
+ENV MINI_INSTALLER Miniconda3-3.9.1-Linux-x86_64.sh
 RUN \
   wget --quiet \
   http://repo.continuum.io/miniconda/$MINI_INSTALLER && \
@@ -30,9 +33,10 @@ RUN \
     dateutil \
     matplotlib \
     numpy \
-    pandas \
     pip \
     pytables \
     scipy
+
+RUN pip install pandas==0.16.0
 
 RUN apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*

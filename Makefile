@@ -1,6 +1,6 @@
 HOST = quay.io
 NAME = humu/pandas
-VERSION = 0.0.1
+VERSION = 0.0.2
 
 build:
 	docker build -t $(HOST)/$(NAME):$(VERSION) --rm .
@@ -12,7 +12,7 @@ test: build
 tag:
 	docker tag -f $(HOST)/$(NAME):$(VERSION) $(HOST)/$(NAME):latest
 
-release:
+release: tag
 	docker push $(HOST)/$(NAME)
 
-.PHONY: build test tag_latest release
+.PHONY: build test tag release
